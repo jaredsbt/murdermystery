@@ -55,14 +55,13 @@ int main(void) {
     
 
     fscanf(stdin, "%s", inspector.playername);
-    printf("%s",inspector.playername);
 
    } else if(strcmp(consent, positive) != 0) {
       printf("Unfortunate, you do not have the courage to take on this challenge. Please try again."); 
     }
     
     printf("%s", inspector.playername);
-    printf(", You have recieved a letter");
+    printf(", you have recieved a letter");
     char action [10];
     {
      bool wrongaction = true; 
@@ -71,25 +70,19 @@ int main(void) {
       
       char action [10];
       fscanf(stdin, "%s", action);
+    
       
-      
-
-      printf("%s", action);
-      if(strcmp(action, "open") == 0){
-        printf("%s", action);
-        if(strcmp(action, "read") == 0)
-        if(strcmp(action, inspector.playername) == 0)
-        printf("%s", inspector.playername);
-      
-
+      if(strcmp(action, "read") == 0 || strcmp(action, "open") == 0){
+        
+        printf("On Friday the 13th, there has been consecutive murders occuring at night. Our prime suspects are the Chef, the Blacksmith, the Farmer, the Bartender and the Banker. Each claim to be innocent although they all have been gone during the same time in the night on the same day the killings occur. Please help us fish out the Murderer.");
         wrongaction = false;
-      
       }
-
+      else{
       printf("This is not a verb I recognize. Please try again");
     }
+    }
 
-      printf("On Friday the 13th, there has been consecutive murders occuring at night. Our prime suspects are the Chef, the Blacksmith, the Farmer, the Bartender and the Banker. Each claim to be innocent although they all have been gone during the same time in the night on the same day the killings occur. Please help us fish out the Murderer.");
+      
 
 
   return 0;
