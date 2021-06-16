@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
-
+#include <ctype.h>
 
 
 
@@ -21,7 +21,12 @@ struct player inspector;
 can be set to true and then break whenever 
 
 */
-
+  char* lowercase (char word []){ 
+    // word contain string of characters will be converted into lowercase. TODO: How to handle differenrt sizes of words 
+    for(int i; i < 5; i ++){
+      tolower(word[i]); 
+    }
+  }
 struct player {
   char playername[20];
 };
@@ -35,6 +40,7 @@ int main(void) {
 
     char confirmation [10];  
     fscanf(stdin, "%s", confirmation);
+    lowercase(confirmation);
     if (strcmp(confirmation, "exit") == 0) exit(0); 
     if(strcmp(confirmation, "play") == 0) isOther = false; 
   } 
@@ -44,11 +50,12 @@ int main(void) {
   char positive[] = "yes";
  
   fscanf(stdin, "%s", consent);
+  lowercase(consent);
   printf("You've selected %s\n", consent);
 
   int result = strcmp(consent, positive);
   struct player inspector; 
-
+  
   if(strcmp(consent, positive) == 0) {
     printf("You are one of the many brave people to take on this challenge. Please solve this case. It is in your best interest. Do it for the sake of your honor. \n What is your name, inspector?\n"); 
     fscanf(stdin, "%s", inspector.playername);
@@ -72,6 +79,7 @@ int main(void) {
       
       char action [10];
       fscanf(stdin, "%s", action);
+      lowercase(action);
       if(strcmp(action, "read") == 0 || strcmp(action, "open") == 0){
         
         printf("On Friday the 13th, there has been consecutive murders occuring at night. Our prime suspects are the Chef, the Blacksmith, the Farmer, the Bartender, the Guard and the Banker. Each claim to be innocent although they all have been gone during the same time in the night on the same day the killings occur. Please help us fish out the Murderer.\n");  
@@ -100,6 +108,7 @@ int main(void) {
     while(isChoosingTransport){
       char transportation [20]; 
       fscanf(stdin,"%s", transportation); 
+      lowercase(transportation);
       if(strcmp(transportation, "plane") == 0) {printf("Day 2. Since the Plane is faster, you have reached the village in the morning.\n");}
       if(strcmp(transportation, "train") == 0) {printf("Day 2. Since the train is the slower route, you have reached the Village during the night time.\n");}
        break; 
