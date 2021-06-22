@@ -21,11 +21,21 @@ struct player inspector;
 can be set to true and then break whenever 
 
 */
-  char* lowercase (char word []){ 
+  void lowercase (char word [20]){ 
     // word contain string of characters will be converted into lowercase. TODO: How to handle differenrt sizes of words 
-    for(int i; i < 5; i ++){
-      tolower(word[i]); 
+    printf("first character in word %c", word[0]); 
+    int i;
+    size_t bytesOfArray= sizeof(word); 
+    size_t bytesOfElement = sizeof(char); 
+    size_t count = bytesOfArray/bytesOfElement;
+    printf("%d", count);
+    printf("Bytes of char %zu\n", bytesOfElement); // 2 or 1
+    printf("Bytes of Array %zu\n", bytesOfArray); // 5 or 10 
+    for(i = 0; i < count; i ++){
+      printf("lowercase letter: %c", tolower(word[i]));
+      
     }
+    
   }
 struct player {
   char playername[20];
