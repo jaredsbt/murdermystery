@@ -21,21 +21,17 @@ struct player inspector;
 can be set to true and then break whenever 
 
 */
-  void lowercase (char word [20]){ 
+  char* lowercase (char word [20]){ 
     // word contain string of characters will be converted into lowercase. TODO: How to handle differenrt sizes of words 
-    printf("first character in word %c", word[0]); 
+    printf("first character in word %c", word[0]);
     int i;
-    size_t bytesOfArray= sizeof(word); 
-    size_t bytesOfElement = sizeof(char); 
-    size_t count = bytesOfArray/bytesOfElement;
-    printf("%d", count);
-    printf("Bytes of char %zu\n", bytesOfElement); // 2 or 1
-    printf("Bytes of Array %zu\n", bytesOfArray); // 5 or 10 
-    for(i = 0; i < count; i ++){
-      printf("lowercase letter: %c", tolower(word[i]));
-      
+    char lowercaseWord [20] = ""; 
+    printf("check %d", strlen(word));
+    for(i = 0; i < strlen(word); i ++){
+      lowercaseWord [i] = tolower(word[i]);
+      // TODO: Fix return type . 
     }
-    
+    return *lowercaseWord; 
   }
 struct player {
   char playername[20];
@@ -118,7 +114,7 @@ int main(void) {
     while(isChoosingTransport){
       char transportation [20]; 
       fscanf(stdin,"%s", transportation); 
-      lowercase(transportation);
+      print("hello check %s", lowercase(transportation));
       if(strcmp(transportation, "plane") == 0) {printf("Day 2. Since the Plane is faster, you have reached the village in the morning.\n");}
       if(strcmp(transportation, "train") == 0) {printf("Day 2. Since the train is the slower route, you have reached the Village during the night time.\n");}
        break; 
