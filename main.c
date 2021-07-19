@@ -21,17 +21,14 @@ struct player inspector;
 can be set to true and then break whenever 
 
 */
-  char* lowercase (char word [20]){ 
-    // word contain string of characters will be converted into lowercase. TODO: How to handle differenrt sizes of words 
-    printf("first character in word %c", word[0]);
+// word contain string of characters will be converted into lowercase. TODO: How to handle differenrt sizes of words 
+  void lowercase (char word [20], char * wordContainer){ 
     int i;
     char lowercaseWord [20] = ""; 
-    printf("check %d", strlen(word));
     for(i = 0; i < strlen(word); i ++){
       lowercaseWord [i] = tolower(word[i]);
-      // TODO: Fix return type . 
     }
-    return *lowercaseWord; 
+    strcpy(wordContainer, lowercaseWord);
   }
 struct player {
   char playername[20];
@@ -46,9 +43,10 @@ int main(void) {
 
     char confirmation [10];  
     fscanf(stdin, "%s", confirmation);
-    lowercase(confirmation);
-    if (strcmp(confirmation, "exit") == 0) exit(0); 
-    if(strcmp(confirmation, "play") == 0) isOther = false; 
+    char s [20];
+    lowercase(confirmation, s);
+    if (strcmp(s, "exit") == 0) exit(0); 
+    if(strcmp(s, "play") == 0) isOther = false; 
   } 
   printf("Welcome to the town of X, \n\nThe villagers here have a curfew because the town is dangerous at a certain time in the night. You as a detective will solve a murder that occurred on Friday the 13th. Are you ready for this Murder Mystery challenge? \n");
 
@@ -56,17 +54,17 @@ int main(void) {
   char positive[] = "yes";
  
   fscanf(stdin, "%s", consent);
-  lowercase(consent);
-  printf("You've selected %s\n", consent);
+  char c [20];
+  lowercase(consent, c);
+  printf("You've selected %s %s \n", consent, c);
 
-  int result = strcmp(consent, positive);
   struct player inspector; 
   
-  if(strcmp(consent, positive) == 0) {
+  if(strcmp(c, positive) == 0) {
     printf("You are one of the many brave people to take on this challenge. Please solve this case. It is in your best interest. Do it for the sake of your honor. \n What is your name, inspector?\n"); 
     fscanf(stdin, "%s", inspector.playername);
 
-   } else if(strcmp(consent, positive) != 0) {
+   } else if(strcmp(c, positive) != 0) {
       printf("Unfortunate, you do not have the courage to take on this challenge. Please try again."); 
   }
   printf("%s", inspector.playername);
@@ -77,16 +75,11 @@ int main(void) {
 
     while (wrongaction){
 
-
-      // TODO: Create function that converts a string into lowercase. 
-      // "Plane" === "plane"
-      // "Plane" convert to "plane"
-      // "plane" == "plane"
-      
       char action [10];
       fscanf(stdin, "%s", action);
-      lowercase(action);
-      if(strcmp(action, "read") == 0 || strcmp(action, "open") == 0){
+      char a [20];
+      lowercase(action, a);
+      if(strcmp(a, "read") == 0 || strcmp(a, "open") == 0){
         
         printf("On Friday the 13th, there has been consecutive murders occuring at night. Our prime suspects are the Chef, the Blacksmith, the Farmer, the Bartender, the Guard and the Banker. Each claim to be innocent although they all have been gone during the same time in the night on the same day the killings occur. Please help us fish out the Murderer.\n");  
         wrongaction = false;
@@ -104,19 +97,13 @@ int main(void) {
 
     bool isChoosingTransport = true;
 
-    //while
-    // if statement
-    /// else if 
-    // function 
-    // fcanfs , strcmp
-
-
     while(isChoosingTransport){
       char transportation [20]; 
       fscanf(stdin,"%s", transportation); 
-      print("hello check %s", lowercase(transportation));
-      if(strcmp(transportation, "plane") == 0) {printf("Day 2. Since the Plane is faster, you have reached the village in the morning.\n");}
-      if(strcmp(transportation, "train") == 0) {printf("Day 2. Since the train is the slower route, you have reached the Village during the night time.\n");}
+      char b [20];
+      lowercase(transportation, b); 
+      if(strcmp(b, "plane") == 0) {printf("Day 2. Since the Plane is faster, you have reached the village in the morning.\n");}
+      if(strcmp(b, "train") == 0) {printf("Day 2. Since the train is the slower route, you have reached the Village during the night time.\n");}
        break; 
     }
 
