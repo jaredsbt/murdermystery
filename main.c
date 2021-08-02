@@ -102,16 +102,40 @@ int main(void) {
       fscanf(stdin,"%s", transportation); 
       char b [20];
       lowercase(transportation, b); 
-      if(strcmp(b, "plane") == 0) {printf("Day 2. Since the Plane is faster, you have reached the village in the morning.\n");}
-      if(strcmp(b, "train") == 0) {printf("Day 2. Since the train is the slower route, you have reached the Village during the night time.\n");}
+      if(strcmp(b, "plane") == 0) {
+        printf("Day 2. Since the Plane is faster, you have reached the village in the morning. What would you like to do, investigator?\n");
+        char discover [20]; 
+        fscanf(stdin, "%s", discover);
+        char d [20];
+        lowercase(discover, d);
+        if(strcmp(d, "investigate") == 0 || strcmp(d, "search") == 0 || strcmp(d, "explore") ==0) {
+          printf("Seems like the Barn, the Smithy, and the Bank are currently.\n You can investigate three of six possible suspects right now: The Famrer, The Backsmith, and the Banker.\n Who would you like to suspect first?");
+          char suspects [20]; 
+          fscanf(stdin, "%s", suspects);
+          char e [20];
+          lowercase(suspects, e); 
+          if(strcmp(e, "farmer") == 0){
+
+          }
+          if(strcmp(e, "balcksmith") == 0){
+
+          }
+          if(strcmp(e, "banker") == 0){
+
+          }
+        }
+          
+      } // Plane's if
+      if(strcmp(b, "train") == 0) {printf("Day 2. Since the train is the slower route, you have reached the Village during the night time. What would you like to do, investigator?\n");}
        break; 
     }
-
+      
+      
 
     // if player chooses Plane, arrive at Day 2 in the morning time. Could only investigate the Farmer, Blacksmith and Banker. Perk of day time: After investigating available suspects ONLY in day 2, citizen approaches with valuable information hinting the real killer.
     // if player choose train, arrive at Day 2 in the night time. Could only investigate the Chef, bartender & guard. Perk of Night: After investigating available suspects ONLY ON DAY 2, there is an incident/ clue hinting the real killer. Incident- Player Coincidentally sees Bartender mistreating wife hinting he is killer.
   return 0;
 }
 
-
+// TODO: restructure our code in order to have one while loop which breaks or doesn't break "Does not recognize" or continues with the action of the user input
 
