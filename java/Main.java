@@ -1,5 +1,9 @@
 import java.util.Scanner;
 
+
+
+//Dog dog = new Dog("Brady", 3, "Terrier", "Brown");
+
 public class Main {
     public static void main(String[] args) {
         System.out.println("Hello World");
@@ -25,8 +29,15 @@ public class Main {
             }
 
         }
-    }
+
+        DaySuspects farmer = new DaySuspects("John", "Farmer");             // definition of the object Farmer
+         farmer.interact(); 
+         System.out.println(farmer.givenName);
+        }
 }
 
 // To create java executable, run javac main.java
 // To run exe. , type java Main
+
+// Class is a category. Objects of a category can be made by using constructors. 
+// Constructors are functions that calls the class and sets the class variables equal to variabels that you pass. 
