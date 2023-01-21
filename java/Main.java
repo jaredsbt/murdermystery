@@ -13,19 +13,20 @@ public class Main {
             System.out.println("Type play to play");
             System.out.println("Type exit to exit");
 
-            Scanner confirmation = new Scanner(System.in);
-            System.out.println("enter input");
+            try (Scanner confirmation = new Scanner(System.in)) {
+                System.out.println("enter input");
 
-            String userInput = confirmation.nextLine();
-            System.out.println("User confirmation is: " + userInput);
+                String userInput = confirmation.nextLine();
+                System.out.println("User confirmation is: " + userInput);
 
-            int characterDifference = "exit".compareToIgnoreCase(userInput);
-            if (characterDifference == 0) { // they're the same strings
-                System.exit(0);
-            }
-            int characterDifference2 = "play".compareToIgnoreCase(userInput);
-            if (characterDifference2 == 0) {
-                break;
+                int characterDifference = "exit".compareToIgnoreCase(userInput);
+                if (characterDifference == 0) { // they're the same strings
+                    System.exit(0);
+                }
+                int characterDifference2 = "play".compareToIgnoreCase(userInput);
+                if (characterDifference2 == 0) {
+                    break;
+                }
             }
 
         }
