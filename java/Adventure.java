@@ -32,10 +32,10 @@ public class Adventure {
         while (invalidName) {
             String nameInput = input.nextLine();
 
-            if ( nameInput.length() > 20) { throw new IllegalArgumentException("Character too long"); }
-            if ( nameInput.length() == 0) { throw new IllegalArgumentException("Please input name!"); }
+            if ( nameInput.length() > 20) { System.out.println("Character too long"); }
+            if ( nameInput.length() == 0) { System.out.println("Please input name!"); }
 
-            if ( nameInput.contains("[a-zA-Z]+") == false ) { throw new IllegalArgumentException("Names need letters"); }
+            if ( nameInput.matches(".*[a-zA-Z]+.*") == false ) { System.out.println("Name need letters"); }
 
             else { 
                 boolean Name = true;
@@ -44,9 +44,9 @@ public class Adventure {
                     try ( Scanner confirmation = new Scanner(System.in)) {
                         String confirmationInput = confirmation.nextLine();
 
-                        if (confirmationInput.compareToIgnoreCase("yes") == 0 ) { invalidName = false; }
-                        else if ( confirmationInput.compareToIgnoreCase("no") == 0 ) { break; }
-                        else { throw new IllegalArgumentException("That is a very I do not recognize"); }
+                        if (confirmationInput.compareToIgnoreCase("yes") == 0 ) { break; }
+                        else if ( confirmationInput.compareToIgnoreCase("no") == 0 ) { Name = false; }
+                        else { System.out.println("That is a very I do not recognize"); }
                     }
                 }  
             }
