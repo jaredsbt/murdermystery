@@ -7,14 +7,6 @@ import java.util.Scanner;
 
 public class Adventure {
 
-    boolean verbs(String input) {
-        if ( input.compareToIgnoreCase("open") == 0 || input.compareToIgnoreCase("read") == 0 ||
-             input.compareToIgnoreCase("read") == 0 || input.compareToIgnoreCase("read") == 0 || 
-             input.compareToIgnoreCase("read") == 0 || input.compareToIgnoreCase("read") == 0 ) { return false; }
-
-        else { return true; }
-    }
-    
     public static void main(String[] args) {
 
         
@@ -69,8 +61,24 @@ public class Adventure {
                 }  
             }
         }
-        System.out.println("Hello " + user.name + ",\n");
-        System.out.println("You have received a letter");
+
+        System.out.println("\nHello " + user.name + ",\n");
+        System.out.println("You have received a letter...");
+
+        boolean letterInteraction = true;
+        int hintTrigger = 0;
+
+        while (letterInteraction) {
+            String interaction = input.nextLine();
+
+            if ( hintTrigger >= 3 ) { System.out.println("\nHint: What do you normally do with letters")}
+
+            if ( interaction.compareToIgnoreCase("open") == 0 || interaction.compareToIgnoreCase("read") == 0 ||
+                 interaction.compareToIgnoreCase("continue") == 0 || interaction.compareToIgnoreCase("go") == 0 || 
+                 interaction.compareToIgnoreCase("forward") == 0 || interaction.compareToIgnoreCase("interact") == 0 ) { break; }
+
+            else { System.out.println("That is a verb I do not recognize"); hintTrigger += 1; }
+        }
 
         
 
