@@ -6,6 +6,15 @@ import java.util.Scanner;
 // }
 
 public class Adventure {
+
+    boolean verbs(String input) {
+        if ( input.compareToIgnoreCase("open") == 0 || input.compareToIgnoreCase("read") == 0 ||
+             input.compareToIgnoreCase("read") == 0 || input.compareToIgnoreCase("read") == 0 || 
+             input.compareToIgnoreCase("read") == 0 || input.compareToIgnoreCase("read") == 0 ) { return false; }
+
+        else { return true; }
+    }
+    
     public static void main(String[] args) {
 
         
@@ -62,6 +71,8 @@ public class Adventure {
         }
         System.out.println("Hello " + user.name + ",\n");
         System.out.println("You have received a letter");
+
+        
 
         
     }
