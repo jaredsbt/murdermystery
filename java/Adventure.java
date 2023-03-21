@@ -14,8 +14,9 @@ public class Adventure {
 
         Scanner input = new Scanner(System.in);
 
-        boolean isOther = true;
-        while (isOther) {
+        boolean startMenu = true;
+
+        while ( startMenu ) {
             String userInput = input.nextLine();
             // System.out.println("User confirmation is: " + userInput);
 
@@ -59,7 +60,10 @@ public class Adventure {
                 }  
             }
         }
-        System.out.println("Hello " + user.name);
+        System.out.println("Hello " + user.name + ",\n");
+        System.out.println("You have received a letter");
+
+        
     }
 }
 
