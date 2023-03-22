@@ -11,6 +11,7 @@ public class Adventure {
 
         
         System.out.println("\nWelcome to Murder Mystery!\n\n There has been multiple deaths reported in the Town of Saint Everking's this past week.\n Your Job is to discover the cause of these deaths.\n\n Can you solve this MYSTERY?\n\n");
+
         System.out.println("Yes, I'm ready (type: play)\n");
 
         Scanner input = new Scanner(System.in);
@@ -80,9 +81,7 @@ public class Adventure {
             else { System.out.println("That is a verb I do not recognize"); hintTrigger += 1; }
         }
 
-        
 
-        
     }
 }
 
