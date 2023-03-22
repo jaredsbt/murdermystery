@@ -32,7 +32,7 @@ public class Adventure {
 
         System.out.println("\nWelcome to Saint Everking's, \n\nThe mayor enforced a 10pm curfew in response to the recent murder after sun set. Police and investigators have not been able to find the criminal.\n\n You, the country's infamous detective, are the Town's only hope.\n");
         
-        Player user = new Player("Kida");
+        Player user = new Player("Player");
 
         boolean invalidName = true;
 
