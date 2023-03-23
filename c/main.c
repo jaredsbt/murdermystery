@@ -10,7 +10,7 @@ void lowercase (char word [100], char * wordContainer){
     for(i = 0; i < strlen(word); i ++){
       lowercaseWord [i] = tolower(word[i]);
     }
-    strcpy(wordContainer, lowercaseWord);
+    // strcpy(wordContainer, lowercaseWord);
   }
 
 bool verbs(char playerResponse[100]){
@@ -21,7 +21,7 @@ bool verbs(char playerResponse[100]){
 
   if((strcmp(yesOrNo, "yes") == 0) || (strcmp(yesOrNo, "open") == 0) || (strcmp(yesOrNo, "read") == 0) || (strcmp(yesOrNo, "search") == 0)) {
     return false; 
-  } else if(strcmp(yesOrNo, "no") == 0){
+  } else if((strcmp(yesOrNo, "no") == 0) || (strcmp(yesOrNo," "))){
     return true;
   } else {
     printf("%s", error);
@@ -80,11 +80,12 @@ int main(void) {
       int sizeOfName = strlen(detective.playername);
 
       if (sizeOfName == 0){
-        return true;
+        return nameLength = true;
       } else if (sizeOfName > 100){
-        return true;
+        return nameLength = true;
+      } else {
+        return nameLength = false;
       }
-      break;
       }
 
     char nameMsg [50] = "Is this the name you want to keep: ";
@@ -92,18 +93,22 @@ int main(void) {
     // strcat(nameMsg, name); 
 
     printf("%s", nameMsg);
-    printf("%s", detective.playername);
+    printf("%s\n", detective.playername);
     
     char playerResponse [20];
     fscanf(stdin,"%s", playerResponse);
 
-    if(verbs(playerResponse)){
-      return true;
-    } else if(verbs(playerResponse) == false){
-      return false;
-    } else{
-      return verbs(playerResponse);
-    }
+    bool outcome = verbs(playerResponse);
+
+    return outcome;
+
+    // if(verbs(playerResponse)){
+    //   return true;
+    // } else if(verbs(playerResponse) == false){
+    //   return false;
+    // } else{
+    //   printf("That is a verb I do not recognize ");
+    // }
   }
 
   char greeting [10] = "Hello, ";
@@ -114,11 +119,11 @@ int main(void) {
   printf("%s", detective.playername);
   printf(". You have received a letter.");
 
-  bool letter = true;
+  // bool letter = true;
 
-  while(letter){
-    break;
-  }
+  // while(letter){
+  //   break;
+  // }
 
   return 0;
 }
